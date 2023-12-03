@@ -13,8 +13,8 @@ public class Demo {
         int n = 1;
 
         // choose the size and method via this vars
-        String size = "sedang"; // kecil, sedang, besar
-        String method = "BNB"; // Change it accordingly
+        String size = "kecil"; // kecil, sedang, besar
+        String method = "DP"; // Change it accordingly
         int seedNum = 0;
 
         if (size.equals("kecil")) {
@@ -49,8 +49,6 @@ public class Demo {
         } catch (NumberFormatException | FileNotFoundException e) {
             e.printStackTrace();
         }
-
-        System.out.println(Arrays.toString(arr));
 
         if (method.equals("DP")) {
             startTime = System.nanoTime();

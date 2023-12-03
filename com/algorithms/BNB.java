@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class BNB {
-    public static boolean[] bestAssignment;
-    public static int bestErr = Integer.MAX_VALUE; // Simulate ref int
+    public static boolean[] bestAssignment; // Simulate ref bestAssignment
+    public static int bestErr = Integer.MAX_VALUE; // Simulate ref bestErr
 
     public static void partition(int[] arr) {
         int[] values = arr;
@@ -34,22 +34,21 @@ public class BNB {
             else
                 subset2.add(arr[i]);
         }
-        // System.out.println("Subset 1: " + subset1);
-        // System.out.println("Subset 2: " + subset2);
+        System.out.println("Subset 1: " + subset1);
+        System.out.println("Subset 2: " + subset2);
     }
 
     public static void findPartition(int[] values,
             int startIndex, int totalValue, int unassignedValue,
             boolean[] testAssignment, int testValue) {
 
-        // If startIndex is beyond the end of the array,
-        // then all entries have been assigned.
+        // If startIndex is beyond the end of the array, then all entries have been
+        // assigned.
         if (startIndex >= values.length) {
-            // We're done. See if this assignment is better than
-            // what we have so far.
+            // We're done. Check if this assignment is better than what we have so far.
             int testErr = Math.abs(2 * testValue - totalValue);
             if (testErr < bestErr) {
-                // This is an improvement. Save it.
+                // Found improvement, update the bestErr
                 bestErr = testErr;
                 bestAssignment = Arrays.copyOf(testAssignment, testAssignment.length);
 
@@ -60,9 +59,6 @@ public class BNB {
             // See if there's any way we can assign
             // the remaining items to improve the solution.
             int testErr = Math.abs(2 * testValue - totalValue);
-            // System.out.print(testErr);
-            // System.out.print(" || ");
-            // System.out.println(bestErr);
             if (testErr - unassignedValue < bestErr) {
                 // There's a chance we can make an improvement.
                 // We will now assign the next item.
